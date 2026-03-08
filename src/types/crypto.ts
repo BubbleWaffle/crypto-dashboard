@@ -10,3 +10,14 @@ export interface Coin {
     low_24h: number;
     price_change_percentage_24h: number;
 };
+
+export interface CoinMarketChart {
+    prices: [number, number][];
+    market_caps: [number, number][];
+    total_volumes: [number, number][];
+};
+
+export interface TimeSeriesPoint {
+    timestamp: number;
+    value: number;
+};
