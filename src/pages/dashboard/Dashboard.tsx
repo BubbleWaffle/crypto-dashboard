@@ -1,12 +1,19 @@
+import { useState } from "react";
 import CoinChart from "./components/PriceChart";
 import MarketCapChart from "./components/MarketCapChart";
 import { useCoinChart } from "./hooks/useCoinChart";
+import TimeRangeSelector from "./components/TimeRangeSelector";
+import CurrencyRangeSelector from "./components/CurrencyRangeSelector";
 
 function Dashboard() {
-    const { price, marketCap, volume, loading, error } = useCoinChart({coinId: "bitcoin", currency: "pln", days: 30});
+    const [days, setDays] = useState(30);
+    const [currency, setCurrency] = useState("usd");
+    const { price, marketCap, volume, loading, error } = useCoinChart({coinId: "bitcoin", currency: currency, days: days});
     return(
         <>
             <h1>Bitcoin chart</h1>
+            <TimeRangeSelector value={days} onChange={setDays} />
+            <CurrencyRangeSelector value={currency} onChange={setCurrency} />
             <CoinChart data={price} loading={loading} error={error} />
             <MarketCapChart data={volume} loading={loading} error={error} />
         </>
