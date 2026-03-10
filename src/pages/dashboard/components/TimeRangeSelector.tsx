@@ -1,9 +1,9 @@
-interface TimeRangeSelectorPros {
+type TimeRangeSelectorProps = {
     value: number;
     onChange: (days: number) => void;
 }
 
-function TimeRangeSelector({ value, onChange }: TimeRangeSelectorPros) {
+function TimeRangeSelector({ value, onChange }: TimeRangeSelectorProps) {
   return (
     <select
       value={value}

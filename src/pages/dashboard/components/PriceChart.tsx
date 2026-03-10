@@ -1,7 +1,7 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import type { TimeSeriesPoint } from "../../../types/crypto";
 
-interface PriceChartProps {
+type PriceChartProps = {
     data: TimeSeriesPoint[];
     loading: boolean;
     error: string | null;

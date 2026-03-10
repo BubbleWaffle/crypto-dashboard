@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 function Navbar() {
     const [query, setQuery] = useState("");
-    const { data, loading, error } = useSearch({ query });
+    const { data, loading, error } = useSearch(query);
 
     return (
         <AppBar>

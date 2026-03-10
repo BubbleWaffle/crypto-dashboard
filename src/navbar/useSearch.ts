@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { getSearchCoin } from "../api/cryptoApi";
 import type { CoinSearchResult } from "../types/crypto";
 
-interface UseSearchParams {
-    query: string;
-};
-
-export const useSearch = ({ query }: UseSearchParams) => {
+export const useSearch = (query: string) => {
         const [data, setData] = useState<CoinSearchResult[]>([]);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState<string | null>(null);

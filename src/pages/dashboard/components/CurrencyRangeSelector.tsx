@@ -1,4 +1,4 @@
-interface CurrencyRangeSelectorPros {
+type CurrencyRangeSelectorPros = {
     value: string;
     onChange: (currency: string) => void;
 }

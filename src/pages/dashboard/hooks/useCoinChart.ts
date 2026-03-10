@@ -3,13 +3,13 @@ import { getCoinChart } from "../../../api/cryptoApi";
 import { mapTimeSeries } from "../../../utils/mapTimeSeries";
 import type { CoinMarketChart } from "../../../types/crypto";
 
-interface UseCoinChartParams {
+type UseCoinChartProps = {
     coinId: string;
     currency: string;
     days: number;
 };
 
-export const useCoinChart = ({coinId, currency, days}: UseCoinChartParams) => {
+export const useCoinChart = ({coinId, currency, days}: UseCoinChartProps) => {
     const [data, setData] = useState<CoinMarketChart | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);

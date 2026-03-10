@@ -1,7 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import type { TimeSeriesPoint } from "../../../types/crypto";
 
-interface TotalVolumesChartProps {
+type TotalVolumesChartProps = {
     data: TimeSeriesPoint[];
     loading: boolean;
     error: string | null;
