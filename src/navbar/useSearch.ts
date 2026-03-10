@@ -1,22 +1,14 @@
 import { useEffect, useState } from "react";
 import { getSearchCoin } from "../api/cryptoApi";
 import type { CoinSearchResult } from "../types/crypto";
+import { useDebouncedQuery } from "../utils/useDebouncedQuery";
 
 export const useSearch = (query: string) => {
         const [data, setData] = useState<CoinSearchResult[]>([]);
         const [loading, setLoading] = useState(true);
         const [error, setError] = useState<string | null>(null);
 
-        // Slowing request during searching (with bigger project it is better to do it as custom hook)
-        const [debouncedQuery, setDebouncedQuery] = useState(query);
-
-        useEffect(() => {
-            const timeout = setTimeout(() => {
-                setDebouncedQuery(query);
-            }, 400);
-
-            return () => clearTimeout(timeout);
-        }, [query]);
+        const debouncedQuery = useDebouncedQuery(query);
 
         useEffect(() => {
 

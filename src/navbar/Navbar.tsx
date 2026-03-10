@@ -38,35 +38,40 @@ function Navbar() {
                             placeholder="Search coin..."
                         />
                     )}
-                    renderOption={(props, option) => (
+                    renderOption={(props, option) => {
+                      const { key, ...rest } = props;
+                    
+                      return (
                         <Box
-                            component="li"
-                            {...props}
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                width: "100%"
-                            }}
+                          component="li"
+                          key={key}
+                          {...rest}
+                          sx={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                            width: "100%"
+                          }}
                         >
-                            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-                                <img
-                                    src={option.thumb}
-                                    alt={option.name}
-                                    width={20}
-                                    height={20}
-                                />
-                                <Typography>
-                                    {option.name}
-                                </Typography>
-                            </Box>
-                            <IconButton size="small">
-                                <AddIcon />
-                            </IconButton>
+                          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                            <img
+                              src={option.thumb}
+                              alt={option.name}
+                              width={20}
+                              height={20}
+                            />
+                            <Typography>
+                              {option.name}
+                            </Typography>
+                          </Box>
+                      
+                          <IconButton size="small">
+                            <AddIcon />
+                          </IconButton>
                         </Box>
-                    )}
+                      );
+                    }}
                 />
-
             </Toolbar>
         </AppBar>
     );
