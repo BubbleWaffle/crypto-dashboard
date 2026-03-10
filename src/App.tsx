@@ -1,9 +1,13 @@
 import Dashboard from "./pages/dashboard/Dashboard";
+import Navbar from "./navbar/Navbar";
 
 function App() {
 
   return (
-    <Dashboard/>
+    <>
+      <Navbar/>
+      <Dashboard/>
+    </>
   );
 }
 

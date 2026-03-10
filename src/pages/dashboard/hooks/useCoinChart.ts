@@ -18,6 +18,7 @@ export const useCoinChart = ({coinId, currency, days}: UseCoinChartParams) => {
         const fetchData = async () => {
             try {
                 setLoading(true);
+                setError(null);
 
                 const chart = await getCoinChart(coinId, currency, days);
                 setData(chart);

@@ -21,3 +21,13 @@ export interface TimeSeriesPoint {
     timestamp: number;
     value: number;
 };
+
+export interface CoinSearchResult {
+    id: string;
+    name: string;
+    thumb: string;
+};
+
+export interface CoinSearchResponse {
+    coins: CoinSearchResult[];
+}
