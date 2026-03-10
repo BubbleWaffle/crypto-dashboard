@@ -1,5 +1,7 @@
 # Crypto Dashboard
 
+🚧 This project is a work in progress.
+
 Web application that uses the CoinGecko API to analyze cryptocurrency data.
 
 ## The application allows users to:
