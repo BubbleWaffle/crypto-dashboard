@@ -10,18 +10,15 @@ function Navbar() {
     return (
         <AppBar>
             <Toolbar>
-
                 <Box
                     component="img"
                     src="/logo.png"
                     alt="logo"
                     sx={{ height: 40, mr: 2 }}
                 />
-
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Crypto Dashboard
                 </Typography>
-
                 <Autocomplete
                     sx={{
                         width: 300,
@@ -59,12 +56,10 @@ function Navbar() {
                                     width={20}
                                     height={20}
                                 />
-
                                 <Typography>
                                     {option.name}
                                 </Typography>
                             </Box>
-
                             <IconButton size="small">
                                 <AddIcon />
                             </IconButton>

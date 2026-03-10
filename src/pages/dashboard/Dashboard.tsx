@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CoinChart from "./components/PriceChart";
-import MarketCapChart from "./components/MarketCapChart";
+import TotalVolumesChart from "./components/TotalVolumesChart";
 import { useCoinChart } from "./hooks/useCoinChart";
 import TimeRangeSelector from "./components/TimeRangeSelector";
 import CurrencyRangeSelector from "./components/CurrencyRangeSelector";
@@ -15,7 +15,7 @@ function Dashboard() {
             <TimeRangeSelector value={days} onChange={setDays} />
             <CurrencyRangeSelector value={currency} onChange={setCurrency} />
             <CoinChart data={price} loading={loading} error={error} />
-            <MarketCapChart data={volume} loading={loading} error={error} />
+            <TotalVolumesChart data={volume} loading={loading} error={error} />
         </>
     );
 }

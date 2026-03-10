@@ -1,13 +1,13 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import type { TimeSeriesPoint } from "../../../types/crypto";
 
-interface MarketCapChartProps {
+interface TotalVolumesChartProps {
     data: TimeSeriesPoint[];
     loading: boolean;
     error: string | null;
 }
 
-function MarketCapChart({ data, loading, error }: MarketCapChartProps) {
+function TotalVolumesChart({ data, loading, error }: TotalVolumesChartProps) {
     if (loading) return <p>Loading chart...</p>;
     if (error) return <p>{error}</p>;
 
@@ -35,4 +35,4 @@ function MarketCapChart({ data, loading, error }: MarketCapChartProps) {
     );
 }
 
-export default MarketCapChart;
+export default TotalVolumesChart;
