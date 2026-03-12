@@ -3,7 +3,11 @@ import { useState } from "react";
 import { useSearch } from "./useSearch";
 import AddIcon from "@mui/icons-material/Add";
 
-function Navbar() {
+type NavbarProps = {
+  onSelectCoin: (coinId: string) => void;
+};
+
+function Navbar({ onSelectCoin }: NavbarProps) {
     const [query, setQuery] = useState("");
     const { data, loading, error } = useSearch(query);
 
@@ -30,7 +34,7 @@ function Navbar() {
                     forcePopupIcon={false}
                     getOptionLabel={(option) => option.name}
                     inputValue={query}
-                    onInputChange={(event, newValue) => setQuery(newValue)}
+                    onInputChange={(_, newValue) => setQuery(newValue)}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -65,7 +69,10 @@ function Navbar() {
                             </Typography>
                           </Box>
                       
-                          <IconButton size="small">
+                          <IconButton
+                            size="small"
+                            onClick={() => onSelectCoin(option.id)}
+                          >
                             <AddIcon />
                           </IconButton>
                         </Box>

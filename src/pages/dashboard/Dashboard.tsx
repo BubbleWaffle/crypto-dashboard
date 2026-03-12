@@ -5,10 +5,15 @@ import { useCoinChart } from "./hooks/useCoinChart";
 import TimeRangeSelector from "./components/TimeRangeSelector";
 import CurrencyRangeSelector from "./components/CurrencyRangeSelector";
 
-function Dashboard() {
+type DashboardProps = {
+    coinId: string;
+};
+
+function Dashboard({ coinId }: DashboardProps) {
+    console.log(coinId);
     const [days, setDays] = useState(30);
     const [currency, setCurrency] = useState("usd");
-    const { price, marketCap, volume, loading, error } = useCoinChart({coinId: "bitcoin", currency: currency, days: days});
+    const { price, marketCap, volume, loading, error } = useCoinChart({ coinId, currency, days });
     return(
         <>
             <h1>Bitcoin chart</h1>
