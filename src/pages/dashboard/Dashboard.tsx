@@ -7,7 +7,7 @@ import CurrencyRangeSelector from "./components/CurrencyRangeSelector";
 import { Box } from "@mui/material";
 
 type DashboardProps = {
-    coinId: string;
+    coinId: string | null;
 };
 
 function Dashboard({ coinId }: DashboardProps) {
@@ -15,8 +15,8 @@ function Dashboard({ coinId }: DashboardProps) {
     const [currency, setCurrency] = useState("usd");
     const { price, marketCap, volume, loading, error } = useCoinChart({ coinId, currency, days });
     return(
-        <Box sx={{ mt: 8 }}>
-            <h1>{coinId}</h1>
+        <Box sx={{ m: 15 }}>
+            <h1>{coinId ? coinId : "You need to select a coin!"}</h1>
             <TimeRangeSelector value={days} onChange={setDays} />
             <CurrencyRangeSelector value={currency} onChange={setCurrency} />
             <CoinChart data={price} loading={loading} error={error} />

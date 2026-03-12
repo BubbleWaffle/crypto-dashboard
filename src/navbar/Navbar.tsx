@@ -12,14 +12,8 @@ function Navbar({ onSelectCoin }: NavbarProps) {
     const { data, loading, error } = useSearch(query);
 
     return (
-        <AppBar>
+        <AppBar sx={{ backgroundColor: "#508ed4" }}>
             <Toolbar>
-                <Box
-                    component="img"
-                    src="/logo.png"
-                    alt="logo"
-                    sx={{ height: 40, mr: 2 }}
-                />
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     Crypto Dashboard
                 </Typography>

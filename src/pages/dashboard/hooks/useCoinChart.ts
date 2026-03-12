@@ -4,7 +4,7 @@ import { mapTimeSeries } from "../../../utils/mapTimeSeries";
 import type { CoinMarketChart } from "../../../types/crypto";
 
 type UseCoinChartProps = {
-    coinId: string;
+    coinId: string | null;
     currency: string;
     days: number;
 };
@@ -19,6 +19,8 @@ export const useCoinChart = ({coinId, currency, days}: UseCoinChartProps) => {
             try {
                 setLoading(true);
                 setError(null);
+
+                if (!coinId) return;
 
                 const chart = await getCoinChart(coinId, currency, days);
                 setData(chart);
