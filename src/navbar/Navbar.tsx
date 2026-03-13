@@ -9,7 +9,7 @@ type NavbarProps = {
 
 function Navbar({ onSelectCoin }: NavbarProps) {
     const [query, setQuery] = useState("");
-    const { data, loading, error } = useSearch(query);
+    const { data, loading } = useSearch(query);
 
     return (
         <AppBar sx={{ backgroundColor: "#508ed4" }}>
