@@ -9,7 +9,6 @@ import { useParams } from "react-router";
 
 function Dashboard() {
     const { coinId } = useParams();
-    console.log(coinId);
     const [days, setDays] = useState(30);
     const [currency, setCurrency] = useState("usd");
     const { price, marketCap, volume, loading, error } = useCoinChart({ coinId, currency, days });
