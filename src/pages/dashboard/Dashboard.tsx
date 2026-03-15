@@ -5,12 +5,11 @@ import { useCoinChart } from "./hooks/useCoinChart";
 import TimeRangeSelector from "./components/TimeRangeSelector";
 import CurrencyRangeSelector from "./components/CurrencyRangeSelector";
 import { Box } from "@mui/material";
+import { useParams } from "react-router";
 
-type DashboardProps = {
-    coinId: string | null;
-};
-
-function Dashboard({ coinId }: DashboardProps) {
+function Dashboard() {
+    const { coinId } = useParams();
+    console.log(coinId);
     const [days, setDays] = useState(30);
     const [currency, setCurrency] = useState("usd");
     const { price, marketCap, volume, loading, error } = useCoinChart({ coinId, currency, days });

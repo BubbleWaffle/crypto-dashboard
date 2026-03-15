@@ -4,7 +4,7 @@ import { mapTimeSeries } from "../../../utils/mapTimeSeries";
 import type { CoinMarketChart } from "../../../types/crypto";
 
 type UseCoinChartProps = {
-    coinId: string | null;
+    coinId: string | undefined;
     currency: string;
     days: number;
 };

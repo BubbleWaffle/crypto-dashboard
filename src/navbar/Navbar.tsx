@@ -2,14 +2,12 @@ import { AppBar, Toolbar, Typography, Box, TextField, Autocomplete, IconButton }
 import { useState } from "react";
 import { useSearch } from "./useSearch";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router";
 
-type NavbarProps = {
-  onSelectCoin: (coinId: string) => void;
-};
-
-function Navbar({ onSelectCoin }: NavbarProps) {
+function Navbar() {
     const [query, setQuery] = useState("");
     const { data, loading } = useSearch(query);
+    const navigate = useNavigate();
 
     return (
         <AppBar sx={{ backgroundColor: "#508ed4" }}>
@@ -65,7 +63,7 @@ function Navbar({ onSelectCoin }: NavbarProps) {
                       
                           <IconButton
                             size="small"
-                            onClick={() => onSelectCoin(option.id)}
+                            onClick={() => navigate(`/${option.id}`)}
                           >
                             <AddIcon />
                           </IconButton>
